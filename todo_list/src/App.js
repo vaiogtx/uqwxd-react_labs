@@ -23,7 +23,10 @@ const App = () => {
   };
   
   // Add the deleteToDo code here
-
+  const deleteTodo = (id) => {
+    let udpatedTodos = [...todos].filter((todo) => todo.id !== id);
+    setTodos(udpatedTodos);
+  };
   
   // Add the toggleComplete code here
 
@@ -44,6 +47,7 @@ return(
   {todos.map((todo) =>
       <div className="todo" key={todo.id}>
         <div>{todo.text}</div>
+        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
       </div>)}
 </div>
 );
